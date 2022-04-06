@@ -1,0 +1,572 @@
+﻿FUNCTION_BLOCK "DataLog1500"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      write : Bool;
+      records : UDInt := 1;
+      timestamp : UInt := 3;
+      "name" : String := 'DataLog';
+      header : String := 'Value';
+      clear : Bool;
+      newFileMax : USInt;
+      delete : Bool;
+   END_VAR
+
+   VAR_OUTPUT 
+      done { ExternalWritable := 'False'} : Bool;
+      busy { ExternalWritable := 'False'} : Bool;
+      error { ExternalWritable := 'False'} : Bool;
+      status { ExternalWritable := 'False'} : Word := #STATUS_NO_CALL;
+      subFunctionStatus { ExternalWritable := 'False'} : Word;
+      id { ExternalWritable := 'False'} : DWord;
+      numberRecords { ExternalWritable := 'False'} : UDInt;
+      sync { ExternalWritable := 'False'} : Bool;
+      full { ExternalWritable := 'False'} : Bool;
+      currentName { ExternalWritable := 'False'} : String;
+   END_VAR
+
+   VAR_IN_OUT 
+      data : Variant;
+   END_VAR
+
+   VAR RETAIN
+      statId { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : DWord;
+      statNumberRecords { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : UDInt;
+      statSync { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statFull { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statClosed { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statFileNumber { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : USInt;
+      statName { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : String;
+   END_VAR
+   VAR 
+      statDelete { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statWriteOld { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statDeleteOld { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statDone { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statBusy { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statError { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      statStatus { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word := #STATUS_NO_CALL;
+      statSubfunctionStatus { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Word;
+      statFBState { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : DInt := #FB_STATE_NO_PROCESSING;
+      instDataLogCreate {InstructionName := 'DataLogCreate'; LibVersion := '1.0'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogCreate;
+      instDataLogOpen {InstructionName := 'DataLogOpen'; LibVersion := '1.1'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogOpen;
+      instDataLogWrite {InstructionName := 'DataLogWrite'; LibVersion := '1.0'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogWrite;
+      instDataLogClear {InstructionName := 'DataLogClear'; LibVersion := '1.1'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogClear;
+      instDataLogClose {InstructionName := 'DataLogClose'; LibVersion := '1.0'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogClose;
+      instDataLogNewFile {InstructionName := 'DataLogNewFile'; LibVersion := '1.1'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogNewFile;
+      instDataLogDelete {InstructionName := 'DataLogDelete'; LibVersion := '1.1'; ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'; S7_SetPoint := 'False'} : DataLogDelete;
+   END_VAR
+
+   VAR_TEMP 
+      tempWrite : Bool;
+      tempDelete : Bool;
+      tempString : String;
+      tempSize : USInt;
+   END_VAR
+
+   VAR CONSTANT 
+      FB_STATE_NO_PROCESSING : DInt := 0;
+      FB_STATE_CREATE : DInt := 10;
+      FB_STATE_OPEN : DInt := 20;
+      FB_STATE_WRITE : DInt := 30;
+      FB_STATE_RECORD_OVERFLOW : DInt := 35;
+      FB_STATE_CLEAR : DInt := 40;
+      FB_STATE_CLOSE : DInt := 50;
+      FB_STATE_FILE_OVERFLOW : DInt := 55;
+      FB_STATE_NEWFILE : DInt := 60;
+      FB_STATE_DELETE : DInt := 70;
+      STATUS_NO_ERROR : Word := 16#0000;
+      STATUS_EXECUTION_FINISHED : Word := 16#0000;
+      STATUS_NO_CALL : Word := 16#7000;
+      STATUS_FIRST_CALL : Word := 16#7001;
+      STATUS_SUBSEQUENT_CALL : Word := 16#7002;
+      STATUS_NOT_EXIST : Word := 16#8092;
+      STATUS_ALREADY_EXIST : Word := 16#8093;
+      STATUS_NOT_OPEN : Word := 16#80B0;
+      ERR_IN_BLOCK_OPERATION : Word := 16#8001;
+      ERR_PARAMETRIZATION : Word := 16#8200;
+      ERR_PROCESSING_EXTERN : Word := 16#8400;
+      ERR_PROCESSING_INTERN : Word := 16#8600;
+      ERR_UNDEFINED_STATE : Word := 16#8600;
+      ERR_DATALOGCREATE : Word := 16#8601;
+      ERR_DATALOGOPEN : Word := 16#8602;
+      ERR_DATALOGWRITE : Word := 16#8603;
+      ERR_DATALOGCLEAR : Word := 16#8604;
+      ERR_DATALOGCLOSE : Word := 16#8605;
+      ERR_DATALOGNEWFILE : Word := 16#8606;
+      ERR_DATALOGDELETE : Word := 16#8607;
+      ERR_AREA_RESERVED : Word := 16#8800;
+      ERR_USER_DEFINED_CLASSES : Word := 16#9000;
+   END_VAR
+
+
+BEGIN
+	REGION BLOCK INFO HEADER
+	  //===============================================================================
+	  // Siemens AG / (c)Copyright 2020
+	  //-------------------------------------------------------------------------------
+	  // Title:            DataLog1200
+	  // Comment/Function: A rising edge on "write" writes a record in the data log
+	  //                   file "name".
+	  //                   If necessary the data log file will be created or opened
+	  //                   first.
+	  //                   If "clear" = TRUE the data log file will be cleared before
+	  //                   writing the first entry.
+	  //                   If "newFileMax" > 0 a new data log file will be created to
+	  //                   be written when the old is full and closed.
+	  //                   This repeats until "newFileMax" is reached and than starts
+	  //                   from the beginning.
+	  //                   If "delete" = TRUE the data log files from "name" until
+	  //                   "name_newFileMax" will be deleted.
+	  //                   "write" can only be exexcuted if "delete" = FALSE.
+	  //                   
+	  // Author:           SIEMENS Industry Online Support (SIOS)
+	  // Tested with:      CPU 1511C-1 PN V2.8
+	  // Engineering:      TIA Portal V16 Update 1
+	  // Restrictions:     -
+	  // Requirements:     FC "Num2Name"
+	  //-------------------------------------------------------------------------------
+	  // Change log table:
+	  // Version  | Date       | Expert in charge       | Changes applied
+	  //----------|------------|------------------------|------------------------------
+	  // 01.00.00 | 2020-05-14 | SIOS                   | First released version
+	  //===============================================================================
+	END_REGION
+	
+	#instDataLogCreate(RECORDS:=#records,
+	                   TIMESTAMP:=#timestamp,
+	                   NAME := #statName,
+	                   HEADER := #header,
+	                   DATA := #data,
+	                   ID := #statId);
+	
+	#instDataLogOpen(NAME := #statName,
+	                 Data := #data, // S7-1500
+	                 ID := #statId);
+	
+	#instDataLogWrite(ID := #statId);
+	
+	#instDataLogClear(ID:=#statId);
+	
+	#instDataLogClose(ID := #statId);
+	
+	#instDataLogNewFile(RECORDS := #records,
+	                    NAME := #statName,
+	                    Data := #data, // S7-1500
+	                    ID := #statId);
+	
+	#instDataLogDelete(NAME := #statName,
+	                   ID := #statId);
+	
+	#tempWrite := #write; // Work with temporary value of input "write"
+	#tempDelete := #delete; // Work with temporary value of input "delete"
+	
+	IF (#tempDelete = TRUE) AND (#statDeleteOld = FALSE) THEN // rising edge of input "delete"
+	  #statFileNumber := 0;
+	  #statDelete := TRUE;
+	END_IF;
+	
+	IF (#tempDelete = FALSE) AND (#statDeleteOld = TRUE) THEN // falling edge of input "delete"
+	  #statName := '';
+	  #statFileNumber := 0;
+	END_IF;
+	
+	#statDeleteOld := #tempDelete;
+	
+	IF #delete = false THEN
+	REGION TRIGGERING
+	    
+	  IF (#tempWrite = TRUE) AND (#statWriteOld = FALSE) // Check if FB is triggered
+	    // TODO(optional): delete next line and comment line if FB shall finish current job before new job can be started with rising edge of execute
+	    AND (#statStatus = #STATUS_NO_CALL)
+	  THEN // First call; initialize FB
+	    #statDone := FALSE;
+	    #statBusy := TRUE;
+	    #statError := FALSE;
+	    #statStatus := #STATUS_FIRST_CALL;
+	    #statSubfunctionStatus := #STATUS_NO_ERROR;
+	    IF #statFileNumber = 0 THEN
+	      #statName := #name;
+	    END_IF;
+	    // State machine - start processing
+	    #statFBState := #FB_STATE_FILE_OVERFLOW;
+	    
+	    // TODO: Initialize functionality: reset of variables, diagnostics, etc.
+	    
+	    // TODO: Initialize functionality: call subsidiary FBs with FALSE
+	    //      #instFB(execute := FALSE);
+	    
+	    #instDataLogCreate.REQ := FALSE;
+	    #instDataLogOpen.REQ := FALSE;
+	    #instDataLogWrite.REQ := FALSE;
+	    #instDataLogClear.REQ := FALSE;
+	    #instDataLogClose.REQ := FALSE;
+	    #instDataLogNewFile.REQ := FALSE;
+	    #instDataLogDelete.REQ := FALSE;
+	    
+	  ELSIF (#statStatus = #STATUS_FIRST_CALL) THEN
+	    #statStatus := #STATUS_SUBSEQUENT_CALL;
+	  END_IF;
+	  
+	  // Edge detection 'execute' input
+	  #statWriteOld := #tempWrite;
+	END_REGION TRIGGERING
+	
+	IF (#statStatus = #STATUS_NO_CALL) THEN // Nothing to do -> End here to reduce "system load"
+	  #id := #statId;
+	  #numberRecords := #statNumberRecords;
+	  #full := #statFull;
+	  #sync := #statSync;
+	  RETURN;
+	END_IF;
+	
+	REGION STATE_MACHINE
+	  CASE #statFBState OF // State machine of FB
+	    #FB_STATE_NO_PROCESSING:
+	      REGION NO Processing
+	        // No processing active (Note: this state must always be present and left empty)
+	        ;
+	      END_REGION NO Processing
+	      
+	    #FB_STATE_FILE_OVERFLOW: // request on file overflow
+	      REGION processing FILE_OVERFLOW
+	        
+	        IF #statClosed THEN
+	          
+	          "Num2Name"(nameIn := #name,
+	                     number := #statFileNumber,
+	                     nameOut => #statName);
+	          
+	          #statFBState := #FB_STATE_NEWFILE;
+	          #statClosed := FALSE;
+	        ELSE
+	          #statFBState := #FB_STATE_RECORD_OVERFLOW;
+	        END_IF;
+	        
+	      END_REGION processing FILE_OVERFLOW
+	      
+	    #FB_STATE_NEWFILE: // create new data log file
+	      REGION processing NEWFILE
+	        
+	        #instDataLogNewFile.REQ := TRUE;
+	        
+	        IF #instDataLogNewFile.DONE
+	        THEN
+	          #statFBState := #FB_STATE_RECORD_OVERFLOW;
+	          #instDataLogNewFile.REQ := FALSE;
+	          #statNumberRecords := 0;
+	          #statSync := TRUE;
+	          #instDataLogNewFile.REQ := FALSE;
+	        END_IF;
+	        
+	        IF #instDataLogNewFile.ERROR
+	        THEN
+	          CASE #instDataLogNewFile.STATUS OF
+	              
+	            #STATUS_ALREADY_EXIST:
+	              #statId := 0;
+	              #statFBState := #FB_STATE_OPEN;
+	              #instDataLogNewFile.REQ := FALSE;
+	              
+	            ELSE
+	              #statSubfunctionStatus := #instDataLogNewFile.STATUS;
+	              #statStatus := #ERR_DATALOGNEWFILE;
+	              
+	          END_CASE;
+	          
+	        END_IF;
+	        
+	      END_REGION processing NEWFILE
+	      
+	    #FB_STATE_RECORD_OVERFLOW: // request on record overflow
+	      REGION processing RECORD_OVERFLOW
+	        
+	        IF (#statNumberRecords >= #records) THEN
+	          IF #clear THEN
+	            #statFBState := #FB_STATE_CLEAR;
+	          ELSE
+	            #statFBState := #FB_STATE_WRITE;
+	          END_IF;
+	        ELSE
+	          #statFBState := #FB_STATE_WRITE;
+	        END_IF;
+	        
+	      END_REGION processing RECORD_OVERFLOW
+	      
+	    #FB_STATE_CLEAR: // clear data log
+	      REGION processing CLEAR
+	        
+	          #instDataLogClear.REQ := TRUE;
+	          
+	          IF #instDataLogClear.DONE
+	          THEN
+	            #statFBState := #FB_STATE_WRITE;
+	            #instDataLogClear.REQ := FALSE;
+	          END_IF;
+	          
+	          IF #instDataLogClear.ERROR
+	          THEN
+	            
+	            CASE #instDataLogClear.#STATUS OF
+	                
+	              #STATUS_NOT_OPEN:
+	                #statFBState := #FB_STATE_OPEN;
+	                #instDataLogClear.REQ := FALSE;
+	                
+	              #STATUS_NOT_EXIST:
+	                #statFBState := #FB_STATE_CREATE;
+	                #instDataLogClear.REQ := FALSE;
+	                
+	              ELSE
+	                #statSubfunctionStatus := #instDataLogClear.STATUS;
+	                #statStatus := #ERR_DATALOGCLEAR;
+	                #instDataLogClear.REQ := FALSE;
+	                
+	            END_CASE;
+	            
+	          END_IF;
+	        
+	      END_REGION processing CLEAR
+	      
+	    #FB_STATE_WRITE: // write data log
+	      REGION processing WRITE
+	        
+	        #instDataLogWrite.REQ := TRUE;
+	        
+	        IF #instDataLogWrite.DONE
+	        THEN
+	          
+	          IF #statNumberRecords >= #records
+	          THEN
+	            #statNumberRecords := 1;
+	            #statStatus := #STATUS_EXECUTION_FINISHED;
+	          ELSE
+	            #statNumberRecords := #statNumberRecords + 1;
+	            
+	            IF #statNumberRecords = #records THEN
+	              
+	              IF #statFileNumber < #newFileMax
+	              THEN
+	                #statFileNumber := #statFileNumber + 1;
+	                #statFBState := #FB_STATE_CLOSE;
+	              ELSE
+	                #statFileNumber := 0;
+	                #statId := 0;
+	                #statStatus := #STATUS_EXECUTION_FINISHED;
+	              END_IF;
+	              
+	            ELSE
+	              #statStatus := #STATUS_EXECUTION_FINISHED;
+	            END_IF;
+	            
+	          END_IF;
+	          #instDataLogWrite.REQ := FALSE;
+	          
+	        END_IF;
+	        
+	        IF #instDataLogWrite.ERROR
+	        THEN
+	          CASE #instDataLogWrite.STATUS OF
+	              
+	            #STATUS_NOT_EXIST:
+	              #statFBState := #FB_STATE_CREATE;
+	              
+	            #STATUS_NOT_OPEN:
+	              #statFBState := #FB_STATE_OPEN;
+	              
+	            ELSE
+	              #statSubfunctionStatus := #instDataLogWrite.STATUS;
+	              #statStatus := #ERR_DATALOGWRITE;
+	              
+	          END_CASE;
+	          #instDataLogWrite.REQ := FALSE;
+	          
+	        END_IF;
+	        
+	      END_REGION processing WRITE     
+	      
+	    #FB_STATE_CREATE: // create log
+	      REGION processing CREATE
+	        
+	        #instDataLogCreate.REQ := TRUE;
+	        
+	        IF #instDataLogCreate.DONE
+	        THEN
+	          #statNumberRecords := 0;
+	          #statSync := TRUE;
+	          #statFBState := #FB_STATE_WRITE;
+	          #instDataLogCreate.REQ := FALSE;
+	        END_IF;
+	        
+	        IF #instDataLogCreate.ERROR
+	        THEN
+	          CASE #instDataLogCreate.STATUS OF
+	              
+	            #STATUS_ALREADY_EXIST:
+	              #statFBState := #FB_STATE_OPEN;
+	              
+	            ELSE
+	              #statSubfunctionStatus := #instDataLogCreate.STATUS;
+	              #statStatus := #ERR_DATALOGCREATE;
+	              
+	          END_CASE;
+	          #instDataLogCreate.REQ := FALSE;
+	          
+	        END_IF;
+	        
+	      END_REGION processing CREATE
+	      
+	    #FB_STATE_OPEN: // open data log
+	      REGION processing OPEN
+	        
+	        #instDataLogOpen.REQ := TRUE;
+	        
+	        IF #instDataLogOpen.DONE
+	        THEN
+	          #statFBState := #FB_STATE_FILE_OVERFLOW;
+	          #instDataLogOpen.REQ := FALSE;
+	        END_IF;
+	        
+	        IF #instDataLogOpen.ERROR
+	        THEN
+	              #statSubfunctionStatus := #instDataLogOpen.STATUS;
+	              #statStatus := #ERR_DATALOGOPEN;
+	              #instDataLogOpen.REQ := FALSE;
+	          
+	        END_IF;
+	        
+	      END_REGION processing OPEN
+	      
+	    #FB_STATE_CLOSE: // close data log
+	      REGION processing CLOSE
+	        
+	        #instDataLogClose.REQ := TRUE;
+	        
+	        IF #instDataLogClose.DONE
+	        THEN
+	          #statClosed := TRUE;
+	          #statStatus := #STATUS_EXECUTION_FINISHED;
+	          #instDataLogClose.REQ := FALSE;
+	        END_IF;
+	        
+	        IF #instDataLogClose.ERROR
+	        THEN
+	          #statSubfunctionStatus := #instDataLogClose.STATUS;
+	          #statStatus := #ERR_DATALOGCLOSE;
+	          
+	          #instDataLogClose.REQ := FALSE;
+	        END_IF;
+	        
+	      END_REGION processing CLOSE
+	      
+	    ELSE // Undefined state in state machine reached
+	      REGION undefined state
+	        #statStatus := #ERR_UNDEFINED_STATE;
+	      END_REGION undefined state
+	  END_CASE;
+	END_REGION STATE_MACHINE
+	
+	
+	ELSE
+	  // delete data log(s)
+	  REGION processing DELETE
+	    IF #statDelete THEN
+	      IF #statFileNumber <= #newFileMax THEN
+	        #statId := 0;
+	        
+	        IF #statFileNumber = 0 THEN
+	          #statName := #name;
+	        ELSE
+	          "Num2Name"(nameIn := #name,
+	                     number := #statFileNumber,
+	                     nameOut => #statName);
+	        END_IF;
+	        
+	        #instDataLogDelete.REQ := TRUE;
+	        
+	        IF #instDataLogDelete.DONE
+	        THEN
+	          
+	          IF #statFileNumber < #newFileMax THEN
+	            #statFileNumber := #statFileNumber + 1;
+	          ELSE
+	            #statName := '';
+	            #statStatus := #STATUS_EXECUTION_FINISHED;
+	            #statFileNumber := 0;
+	            #statDelete := false;
+	          END_IF;
+	          #statNumberRecords := 0;
+	          #statSync := FALSE;
+	          #statFull := FALSE;
+	          #instDataLogDelete.REQ := FALSE;
+	        END_IF;
+	        
+	        IF #instDataLogDelete.ERROR
+	        THEN
+	          #statSubfunctionStatus := #instDataLogDelete.STATUS;
+	          #statStatus := #ERR_DATALOGDELETE;
+	          #statDelete := false;
+	          #instDataLogDelete.REQ := FALSE;
+	        END_IF;
+	      END_IF;
+	      
+	    END_IF;
+	END_REGION processing DELETE
+	
+	
+	END_IF;
+	    
+	#statFull := #statNumberRecords >= #records;
+	
+	REGION OUTPUTS
+	  // Write outputs
+	  IF (#statStatus = #STATUS_EXECUTION_FINISHED) AND (#statDone = FALSE) THEN // Execution finished without errors
+	    REGION execution finished
+	      #statDone := TRUE;
+	      #statBusy := FALSE;
+	      #statError := FALSE;
+	      // execution aborted --> set state no processing
+	      #statFBState := #FB_STATE_NO_PROCESSING;
+	    END_REGION execution finished
+	    
+	  ELSIF (#statStatus.%X15 = TRUE) AND (#statError = FALSE) THEN // Error occurred (#statStatus is 16#8000 to 16#FFFF)
+	    REGION error occured
+	      #statDone := FALSE;
+	      #statBusy := FALSE;
+	      #statError := TRUE;
+	      // execution aborted --> set state no processing
+	      #statFBState := #FB_STATE_NO_PROCESSING;
+	    END_REGION error occured
+	    
+	  ELSIF (#tempDelete = FALSE) AND (#tempWrite = FALSE) AND ((#statDone = TRUE) OR (#statError = TRUE)) THEN // Reset outputs
+	    REGION execute reseted
+	      #statDone := FALSE;
+	      #statBusy := FALSE;
+	      #statError := FALSE;
+	      #statStatus := #STATUS_NO_CALL;
+	      #statSubfunctionStatus := #STATUS_NO_ERROR;
+	      // TODO: Reset application specific outputs
+	      // 
+	    END_REGION execute reseted
+	  END_IF;
+	  
+	  REGION Write static values to outputs
+	    #done := #statDone;
+	    #busy := #statBusy;
+	    #error := #statError;
+	    #status := #statStatus;
+	    #subFunctionStatus := #statSubfunctionStatus;
+	    #id := #statId;
+	    #numberRecords := #statNumberRecords;
+	    #full := #statFull;
+	    #sync := #statSync;
+	    // #currentName := #statName;
+	    #currentName := CONCAT(IN1 := #statName, IN2 := '.csv');
+	    // if ENO mechanism is not used / not wanted replace the following line by --> ENO := TRUE;
+	    ENO := NOT #statError;
+	    // TODO: Write application specific static values to outputs
+	    // 
+	  END_REGION Write static values TO outputs
+	END_REGION OUTPUTS
+END_FUNCTION_BLOCK
+

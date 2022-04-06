@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2022-04-06T07:28:40.8577334Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Test Suite Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced / Unified PC</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Types.PlcStruct ID="0">
+    <AttributeList>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="None">
+    <Member Name="generalSettings" Datatype="&quot;LAxisCtrl_typeGeneralSettings&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of general settings</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="stopOnError" Datatype="Bool" /><Member Name="resetWithRestart" Datatype="Bool" /><Member Name="abortWaitingSyncCmd" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="power" Datatype="&quot;LAxisCtrl_typePower&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_POWER function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="startMode" Datatype="DInt" /><Member Name="stopMode" Datatype="Int" /><Member Name="syncMotionSimulation" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="jog" Datatype="&quot;LAxisCtrl_typeJog&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of JOG function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="positionControlled" Datatype="Bool" /><Member Name="increment" Datatype="LReal" /><Member Name="mode" Datatype="DInt" /></Section></Sections></Member>
+    <Member Name="moveVelocity" Datatype="&quot;LAxisCtrl_typeMoveVelocity&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_MOVEVELOCITY function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="direction" Datatype="Int" /><Member Name="positionControlled" Datatype="Bool" /><Member Name="velocityChangeOnTheFly" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="stop" Datatype="&quot;LAxisCtrl_typeStop&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_HALT function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="abortAcceleration" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="fastStop" Datatype="&quot;LAxisCtrl_typeFastStop&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_HALT function (alternative dynamics)</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="abortAcceleration" Datatype="Bool" /><Member Name="replaceStopPossible" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="torqueLimiting" Datatype="&quot;LAxisCtrl_typeTorqueLimiting&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_TORQUELIMITING function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="limit" Datatype="LReal" /><Member Name="mode" Datatype="DInt" /></Section></Sections></Member>
+    <Member Name="homing" Datatype="&quot;LAxisCtrl_typeHoming&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of HOMING function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="position" Datatype="LReal" /><Member Name="mode" Datatype="Int" /><Member Name="extendedMode" Datatype="DInt" /><Member Name="extendedModeTorqueLimit" Datatype="LReal" /></Section></Sections></Member>
+    <Member Name="posRelative" Datatype="&quot;LAxisCtrl_typePosRelative&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_MOVERELATIVE function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="distance" Datatype="LReal" /><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="direction" Datatype="DInt" /></Section></Sections></Member>
+    <Member Name="posAbsolute" Datatype="&quot;LAxisCtrl_typePosAbsolute&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_MOVEABSOLUTE function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="position" Datatype="LReal" /><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="direction" Datatype="Int" /><Member Name="positionChangeOnTheFly" Datatype="Bool" /><Member Name="velocityChangeOnTheFly" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="posSuperimposed" Datatype="&quot;LAxisCtrl_typePosSuperimposed&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_MOVESUPERIMPOSED function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="distance" Datatype="LReal" /><Member Name="velocityDiff" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="direction" Datatype="DInt" /></Section></Sections></Member>
+    <Member Name="gearInRelative" Datatype="&quot;LAxisCtrl_typeGearInRelative&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_GEARIN function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="ratioNumerator" Datatype="DInt" /><Member Name="ratioDenominator" Datatype="DInt" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="ratioChangeOnTheFly" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="gearInAbsolute" Datatype="&quot;LAxisCtrl_typeGearInAbsolute&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_GEARIN_POS function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="ratioNumerator" Datatype="DInt" /><Member Name="ratioDenominator" Datatype="DInt" /><Member Name="masterSyncPosition" Datatype="LReal" /><Member Name="slaveSyncPosition" Datatype="LReal" /><Member Name="syncProfileReference" Datatype="DInt" /><Member Name="masterStartDistance" Datatype="LReal" /><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="syncDirection" Datatype="DInt" /><Member Name="ratioChangeOnTheFly" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="camIn" Datatype="&quot;LAxisCtrl_typeCamIn&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_CAMIN function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="masterOffset" Datatype="LReal" /><Member Name="slaveOffset" Datatype="LReal" /><Member Name="masterScaling" Datatype="LReal" /><Member Name="slaveScaling" Datatype="LReal" /><Member Name="masterSyncPosition" Datatype="LReal" /><Member Name="syncProfileReference" Datatype="DInt" /><Member Name="masterStartDistance" Datatype="LReal" /><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="applicationMode" Datatype="DInt" /><Member Name="syncDirection" Datatype="DInt" /></Section></Sections></Member>
+    <Member Name="phasing" Datatype="&quot;LAxisCtrl_typePhasing&quot;"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Configuration of MC_PHASING function</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="phaseShift" Datatype="LReal" /><Member Name="velocity" Datatype="LReal" /><Member Name="acceleration" Datatype="LReal" /><Member Name="deceleration" Datatype="LReal" /><Member Name="jerk" Datatype="LReal" /><Member Name="phaseAbsolute" Datatype="Bool" /><Member Name="phaseShiftChangeOnTheFly" Datatype="Bool" /></Section></Sections></Member>
+  </Section>
+</Sections></Interface>
+      <IsFailsafeCompliant>false</IsFailsafeCompliant>
+      <Name>LAxisCtrl_typeAxisConfig</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Support: tech.team.motioncontrol@siemens.com</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="4" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="5" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>LAxisCtrl_typeAxisConfig</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Types.PlcStruct>
+</Document>

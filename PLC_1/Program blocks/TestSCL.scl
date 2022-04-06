@@ -1,0 +1,129 @@
+﻿FUNCTION_BLOCK "TestSCL"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      start : Bool;
+      stop : Bool;
+   END_VAR
+
+   VAR_OUTPUT 
+      valueIsReached : Bool;
+      currentValue : Int;
+      run : Bool;
+   END_VAR
+
+   VAR 
+      instRTrigForRun {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      startRisingEdge : Bool;
+   END_VAR
+   VAR RETAIN
+      instCounterAdd1 {InstructionName := 'CTU_INT'; LibVersion := '1.0'} : CTU_INT;
+      IEC_Counter_0_Instance {InstructionName := 'CTU_INT'; LibVersion := '1.0'} : CTU_INT;
+      statState { S7_SetPoint := 'True'} : DInt;
+   END_VAR
+   VAR 
+      instRTrig {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      instLGF_FIFO : "LGF_FIFO";
+      statCount { S7_SetPoint := 'True'} : Int;
+      statLogFileName : String[50];
+      statlogFileNameTemp : Array[0..10] of String[50];
+   END_VAR
+
+   VAR_TEMP 
+      tempCount : Int;
+   END_VAR
+
+   VAR CONSTANT 
+      STATE_UNDIFINED : DInt;
+      STATE1 : DInt := 1;
+      STATE2 : DInt := 2;
+      STATE3 : DInt := 3;
+      STATE4 : DInt := 4;
+      STATE5 : DInt := 5;
+   END_VAR
+
+
+BEGIN
+	IF #start THEN
+	    #instRTrigForRun(CLK := TRUE,
+	                     Q => #startRisingEdge);
+	    
+	    #instCounterAdd1(CU := TRUE,
+	                     PV := 5,
+	                     CV => #currentValue);
+	ELSE
+	    #instCounterAdd1.CU := FALSE;
+	END_IF;
+	
+	IF #instCounterAdd1.CV = 5 THEN
+	    #valueIsReached := TRUE;
+	END_IF;
+	
+	IF #start THEN
+	    IF "TestSclDb".nextStep THEN
+	        #statState := #STATE1;
+	    END_IF;
+	END_IF;
+	
+	CASE #statState OF
+	    #STATE1:
+	        IF "TestSclDb".state1 THEN
+	            #statState := #STATE2;
+	        END_IF;
+	        
+	    #STATE2:
+	        IF "TestSclDb".state2 THEN
+	            #statState := #STATE3;
+	        END_IF;
+	        
+	    #STATE3:
+	        IF "TestSclDb".state3 THEN
+	            #statState := #STATE4;
+	        END_IF;
+	END_CASE;
+	
+	IF "TestSclDb".cond1 = 1 THEN
+	    "TestSclDb".testCond1 := TRUE;
+	    #instRTrig(CLK := "TestSclDb".testCond1);
+	    IF #instRTrig.Q THEN
+	        "TestSclDb".result := TRUE;
+	    END_IF;
+	END_IF;
+	
+	  #instLGF_FIFO(enqueue:="Test".fifo.enqueue,
+	                     dequeue:="Test".fifo.dequeue,
+	                     reset:="Test".fifo.reset,
+	                     clear:="Test".fifo.clear,
+	                     initialItem:="Test".fifo.initialItem,
+	                     item:="Test".fifo.item,
+	                     buffer:="Test".fifo.buffer);
+	    
+	       IF #instLGF_FIFO.statElementCount = 0 THEN
+	           "Test".fifo.clear := TRUE;
+	       ELSE
+	           "Test".fifo.clear := False;
+	       END_IF;
+	       
+	// FOR #tempCount := 0 TO 8 DO
+	//    "TestSclDb".aArray[#tempCount] := "TestSclDb".bArray[#tempCount];
+	// END_FOR;
+	       
+	       // FOR #tempCount := 1 TO "TestSclDb".count DO
+	       //     "TestSclDb".aArray[#tempCount] := "TestSclDb".bArray[#tempCount];
+	       // END_FOR;
+	       
+	FOR #statCount := 1 TO "TestSclDb".count DO
+	    "TestSclDb".aArray[#statCount] := "TestSclDb".bArray[#statCount];
+	END_FOR;
+	   
+	"StringDb".name1 := "Test".name1;
+	       
+	FOR #tempCount := 1 TO 10 DO
+	    "TestSclDb".string2[#tempCount] := "TestSclDb".string1[#tempCount];
+	END_FOR;
+	
+	"TestSclDb".string3[8] := "TestSclDb".dumpString;
+	#statlogFileNameTemp["TestSclDb".count] := #statLogFileName;
+	
+END_FUNCTION_BLOCK
+

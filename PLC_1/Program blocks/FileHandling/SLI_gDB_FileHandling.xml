@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2022-04-06T07:28:39.5415585Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Test Suite Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced / Unified PC</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <DBAccessibleFromWebserver>true</DBAccessibleFromWebserver>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="name" Datatype="String" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><StartValue>'UserFiles/SLI_text.txt'</StartValue></Member>
+    <Member Name="fileWrite" Datatype="&quot;typeFileReadWrite&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="start" Datatype="Bool" /><Member Name="offset" Datatype="UDInt" /><Member Name="length" Datatype="UDInt"><StartValue>1000</StartValue></Member><Member Name="data" Datatype="Array[0..999] of Byte"><Subelement Path="0"><StartValue>16#10</StartValue></Subelement><Subelement Path="1"><StartValue>11</StartValue></Subelement><Subelement Path="2"><StartValue>12</StartValue></Subelement><Subelement Path="3"><StartValue>13</StartValue></Subelement><Subelement Path="4"><StartValue>14</StartValue></Subelement><Subelement Path="5"><StartValue>15</StartValue></Subelement><Subelement Path="6"><StartValue>16</StartValue></Subelement><Subelement Path="7"><StartValue>17</StartValue></Subelement><Subelement Path="8"><StartValue>18</StartValue></Subelement><Subelement Path="9"><StartValue>19</StartValue></Subelement><Subelement Path="10"><StartValue>20</StartValue></Subelement></Member><Member Name="resultLength" Datatype="UDInt" /><Member Name="done" Datatype="Bool" /><Member Name="busy" Datatype="Bool" /><Member Name="status" Datatype="Word" /><Member Name="memErrStatus" Datatype="Word" /></Section></Sections></Member>
+    <Member Name="fileRead" Datatype="&quot;typeFileReadWrite&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="start" Datatype="Bool" /><Member Name="offset" Datatype="UDInt" /><Member Name="length" Datatype="UDInt" /><Member Name="data" Datatype="Array[0..999] of Byte" /><Member Name="resultLength" Datatype="UDInt" /><Member Name="done" Datatype="Bool" /><Member Name="busy" Datatype="Bool" /><Member Name="status" Datatype="Word" /><Member Name="memErrStatus" Datatype="Word" /></Section></Sections></Member>
+    <Member Name="fileDelete" Datatype="&quot;typeFileReadWrite&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="start" Datatype="Bool" /><Member Name="offset" Datatype="UDInt" /><Member Name="length" Datatype="UDInt" /><Member Name="data" Datatype="Array[0..999] of Byte" /><Member Name="resultLength" Datatype="UDInt" /><Member Name="done" Datatype="Bool" /><Member Name="busy" Datatype="Bool" /><Member Name="status" Datatype="Word" /><Member Name="memErrStatus" Datatype="Word" /></Section></Sections></Member>
+    <Member Name="data2" Datatype="Array[0..999] of Byte" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Subelement Path="0"><StartValue>16#1</StartValue></Subelement><Subelement Path="1"><StartValue>2</StartValue></Subelement><Subelement Path="2"><StartValue>3</StartValue></Subelement><Subelement Path="3"><StartValue>4</StartValue></Subelement><Subelement Path="4"><StartValue>5</StartValue></Subelement><Subelement Path="5"><StartValue>6</StartValue></Subelement><Subelement Path="6"><StartValue>7</StartValue></Subelement><Subelement Path="7"><StartValue>8</StartValue></Subelement><Subelement Path="8"><StartValue>9</StartValue></Subelement><Subelement Path="9"><StartValue>10</StartValue></Subelement><Subelement Path="104"><StartValue>100</StartValue></Subelement></Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Standard</MemoryLayout>
+      <Name>SLI_gDB_FileHandling</Name>
+      <Number>11</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="4" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="5" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="6" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

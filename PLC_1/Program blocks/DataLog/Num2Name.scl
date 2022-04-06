@@ -1,0 +1,55 @@
+﻿FUNCTION "Num2Name" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      nameIn : String;
+      number : USInt;
+   END_VAR
+
+   VAR_OUTPUT 
+      nameOut : String;
+   END_VAR
+
+   VAR_TEMP 
+      tempString : String;
+      tempSize : USInt;
+   END_VAR
+
+   VAR CONSTANT 
+      LN_10 : Real := 2.302585;
+   END_VAR
+
+
+BEGIN
+	REGION BLOCK INFO HEADER
+	  //===============================================================================
+	  // Siemens AG / (c)Copyright 2020
+	  //-------------------------------------------------------------------------------
+	  // Title:            Num2Name
+	  // Comment/Function: "nameOut" = "<nameIn>_<number>"
+	  //                   called in FB "DataLog1x00"
+	  //                   
+	  // Author:           SIEMENS Industry Online Support (SIOS)
+	  // Tested with:      CPU 1211C V4.4 / CPU 1511C-1 PN V2.8
+	  // Engineering:      TIA Portal V16 Update 1
+	  // Restrictions:     -
+	  // Requirements:     -
+	  //-------------------------------------------------------------------------------
+	  // Change log table:
+	  // Version  | Date       | Expert in charge       | Changes applied
+	  //----------|------------|------------------------|------------------------------
+	  // 01.00.00 | 2020-05-14 | SIOS                   | First released version
+	  //===============================================================================
+	END_REGION
+	
+	#tempSize := DINT_TO_USINT(FLOOR(LN(#number) / #LN_10) + 1);
+	VAL_STRG(IN := #number,
+	         SIZE := #tempSize,
+	         PREC := 0,
+	         FORMAT := 16#0000,
+	         P := 1,
+	         OUT => #tempString);
+	#nameOut := '';
+	#nameOut := CONCAT(IN1 := #nameIn, IN2 := '_', IN3 := #tempString);
+END_FUNCTION
+

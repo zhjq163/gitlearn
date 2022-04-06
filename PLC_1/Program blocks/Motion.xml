@@ -1,0 +1,1079 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V17" />
+  <DocumentInfo>
+    <Created>2022-04-06T07:28:38.3800124Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Test Suite Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced / Unified PC</DisplayName>
+        <DisplayVersion>V17</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="MC_POWER_Instance" Datatype="MC_POWER" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_Axis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Member><Member Name="Enable" Datatype="Bool" /><Member Name="StartMode" Datatype="DInt" /><Member Name="StopMode" Datatype="Int" /></Section><Section Name="Output"><Member Name="Status" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_RESET_Instance" Datatype="MC_RESET" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_Object" Version="5.0"><Sections><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Restart" Datatype="Bool" /></Section><Section Name="Output"><Member Name="Done" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_HOME_Instance" Datatype="MC_HOME" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_Axis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Position" Datatype="LReal" /><Member Name="Mode" Datatype="Int" /></Section><Section Name="Output"><Member Name="ReferenceMarkPosition" Datatype="LReal" /><Member Name="Done" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_MOVEVELOCITY_Instance" Datatype="MC_MOVEVELOCITY" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_SpeedAxis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Axis" Version="5.0"><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="ActualSpeed" Datatype="LReal" /><Member Name="VelocitySetpoint" Datatype="LReal" /><Member Name="Actor" Datatype="TO_Struct_Actor" Version="5.0"><Sections><Section Name="None"><Member Name="Type" Datatype="DInt" /><Member Name="InverseDirection" Datatype="Bool" /><Member Name="DataAdaption" Datatype="DInt" /><Member Name="Efficiency" Datatype="LReal" /><Member Name="Interface" Datatype="TO_Struct_ActorInterface" Version="5.0"><Sections><Section Name="None"><Member Name="AddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="AddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableDriveOutput" Datatype="Bool" /><Member Name="EnableDriveOutputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="DriveReadyInput" Datatype="Bool" /><Member Name="DriveReadyInputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableTorqueData" Datatype="Bool" /><Member Name="TorqueDataAddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="TorqueDataAddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="DriveParameter" Datatype="TO_Struct_ActorDriveParameter" Version="5.0"><Sections><Section Name="None"><Member Name="ReferenceSpeed" Datatype="LReal" /><Member Name="MaxSpeed" Datatype="LReal" /><Member Name="ReferenceTorque" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="TorqueLimiting" Datatype="TO_Struct_TorqueLimiting" Version="5.0"><Sections><Section Name="None"><Member Name="LimitBase" Datatype="DInt" /><Member Name="PositionBasedMonitorings" Datatype="DInt" /><Member Name="LimitDefaults" Datatype="TO_Struct_TorqueLimitingLimitDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Torque" Datatype="LReal" /><Member Name="Force" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="LoadGear" Datatype="TO_Struct_LoadGear" Version="5.0"><Sections><Section Name="None"><Member Name="Numerator" Datatype="UDInt" /><Member Name="Denominator" Datatype="UDInt" /></Section></Sections></Member><Member Name="DynamicLimits" Datatype="TO_Struct_DynamicLimits" Version="5.0"><Sections><Section Name="None"><Member Name="MaxVelocity" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="MaxAcceleration" Datatype="LReal" /><Member Name="MaxDeceleration" Datatype="LReal" /><Member Name="MaxJerk" Datatype="LReal" /></Section></Sections></Member><Member Name="DynamicDefaults" Datatype="TO_Struct_DynamicDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="EmergencyDeceleration" Datatype="LReal" /></Section></Sections></Member><Member Name="Override" Datatype="TO_Struct_Override" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /></Section></Sections></Member><Member Name="Units" Datatype="TO_Struct_Units" Version="5.0"><Sections><Section Name="None"><Member Name="LengthUnit" Datatype="UDInt" /><Member Name="VelocityUnit" Datatype="UDInt" /><Member Name="TimeUnit" Datatype="UDInt" /><Member Name="TorqueUnit" Datatype="UDInt" /><Member Name="ForceUnit" Datatype="UDInt" /></Section></Sections></Member><Member Name="StatusDrive" Datatype="TO_Struct_StatusDrive" Version="5.0"><Sections><Section Name="None"><Member Name="InOperation" Datatype="Bool" /><Member Name="CommunicationOK" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="AdaptionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusTorqueData" Datatype="TO_Struct_StatusTorqueData" Version="5.0"><Sections><Section Name="None"><Member Name="CommandAdditiveTorqueActive" Datatype="DInt" /><Member Name="CommandTorqueRangeActive" Datatype="DInt" /><Member Name="ActualTorque" Datatype="LReal" /></Section></Sections></Member><Member Name="StatusMotionIn" Datatype="TO_Struct_StatusMotionIn" Version="5.0"><Sections><Section Name="None"><Member Name="FunctionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusWord" Datatype="DWord" /><Member Name="StatusWord2" Datatype="DWord" /><Member Name="ErrorWord" Datatype="DWord" /><Member Name="ErrorDetail" Datatype="TO_Struct_ErrorDetail" Version="5.0"><Sections><Section Name="None"><Member Name="Number" Datatype="UDInt" /><Member Name="Reaction" Datatype="DInt" /></Section></Sections></Member><Member Name="WarningWord" Datatype="DWord" /><Member Name="ControlPanel" Datatype="TO_Struct_ControlPanel" Version="5.0"><Sections><Section Name="None"><Member Name="Input" Datatype="TO_Struct_ControlPanelInput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelInputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="ReqCounter" Datatype="UDInt" /><Member Name="Type" Datatype="UDInt" /><Member Name="Position" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Param" Datatype="LReal" /></Section></Sections></Member><Member Name="TimeOut" Datatype="LReal" /><Member Name="EsLifeSign" Datatype="UDInt" /></Section></Sections></Member><Member Name="Output" Datatype="TO_Struct_ControlPanelOutput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelOutputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="AckCounter" Datatype="UDInt" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorID" Datatype="Word" /><Member Name="Done" Datatype="Bool" /><Member Name="Aborted" Datatype="Bool" /></Section></Sections></Member><Member Name="RtLifeSign" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="InternalToTrace" Datatype="Array[1..4] of TO_Struct_Internal" Version="5.0"><Sections><Section Name="None"><Member Name="Id" Datatype="DInt" /><Member Name="Value" Datatype="LReal" /></Section></Sections></Member><Member Name="VirtualAxis" Datatype="TO_Struct_VirtualAxis" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member><Member Name="Simulation" Datatype="TO_Struct_AxisSimulation" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Direction" Datatype="Int" /><Member Name="Current" Datatype="Bool" /><Member Name="PositionControlled" Datatype="Bool" /></Section><Section Name="Output"><Member Name="InVelocity" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_HALT_Instance" Datatype="MC_HALT" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_SpeedAxis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Axis" Version="5.0"><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="ActualSpeed" Datatype="LReal" /><Member Name="VelocitySetpoint" Datatype="LReal" /><Member Name="Actor" Datatype="TO_Struct_Actor" Version="5.0"><Sections><Section Name="None"><Member Name="Type" Datatype="DInt" /><Member Name="InverseDirection" Datatype="Bool" /><Member Name="DataAdaption" Datatype="DInt" /><Member Name="Efficiency" Datatype="LReal" /><Member Name="Interface" Datatype="TO_Struct_ActorInterface" Version="5.0"><Sections><Section Name="None"><Member Name="AddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="AddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableDriveOutput" Datatype="Bool" /><Member Name="EnableDriveOutputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="DriveReadyInput" Datatype="Bool" /><Member Name="DriveReadyInputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableTorqueData" Datatype="Bool" /><Member Name="TorqueDataAddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="TorqueDataAddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="DriveParameter" Datatype="TO_Struct_ActorDriveParameter" Version="5.0"><Sections><Section Name="None"><Member Name="ReferenceSpeed" Datatype="LReal" /><Member Name="MaxSpeed" Datatype="LReal" /><Member Name="ReferenceTorque" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="TorqueLimiting" Datatype="TO_Struct_TorqueLimiting" Version="5.0"><Sections><Section Name="None"><Member Name="LimitBase" Datatype="DInt" /><Member Name="PositionBasedMonitorings" Datatype="DInt" /><Member Name="LimitDefaults" Datatype="TO_Struct_TorqueLimitingLimitDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Torque" Datatype="LReal" /><Member Name="Force" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="LoadGear" Datatype="TO_Struct_LoadGear" Version="5.0"><Sections><Section Name="None"><Member Name="Numerator" Datatype="UDInt" /><Member Name="Denominator" Datatype="UDInt" /></Section></Sections></Member><Member Name="DynamicLimits" Datatype="TO_Struct_DynamicLimits" Version="5.0"><Sections><Section Name="None"><Member Name="MaxVelocity" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="MaxAcceleration" Datatype="LReal" /><Member Name="MaxDeceleration" Datatype="LReal" /><Member Name="MaxJerk" Datatype="LReal" /></Section></Sections></Member><Member Name="DynamicDefaults" Datatype="TO_Struct_DynamicDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="EmergencyDeceleration" Datatype="LReal" /></Section></Sections></Member><Member Name="Override" Datatype="TO_Struct_Override" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /></Section></Sections></Member><Member Name="Units" Datatype="TO_Struct_Units" Version="5.0"><Sections><Section Name="None"><Member Name="LengthUnit" Datatype="UDInt" /><Member Name="VelocityUnit" Datatype="UDInt" /><Member Name="TimeUnit" Datatype="UDInt" /><Member Name="TorqueUnit" Datatype="UDInt" /><Member Name="ForceUnit" Datatype="UDInt" /></Section></Sections></Member><Member Name="StatusDrive" Datatype="TO_Struct_StatusDrive" Version="5.0"><Sections><Section Name="None"><Member Name="InOperation" Datatype="Bool" /><Member Name="CommunicationOK" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="AdaptionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusTorqueData" Datatype="TO_Struct_StatusTorqueData" Version="5.0"><Sections><Section Name="None"><Member Name="CommandAdditiveTorqueActive" Datatype="DInt" /><Member Name="CommandTorqueRangeActive" Datatype="DInt" /><Member Name="ActualTorque" Datatype="LReal" /></Section></Sections></Member><Member Name="StatusMotionIn" Datatype="TO_Struct_StatusMotionIn" Version="5.0"><Sections><Section Name="None"><Member Name="FunctionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusWord" Datatype="DWord" /><Member Name="StatusWord2" Datatype="DWord" /><Member Name="ErrorWord" Datatype="DWord" /><Member Name="ErrorDetail" Datatype="TO_Struct_ErrorDetail" Version="5.0"><Sections><Section Name="None"><Member Name="Number" Datatype="UDInt" /><Member Name="Reaction" Datatype="DInt" /></Section></Sections></Member><Member Name="WarningWord" Datatype="DWord" /><Member Name="ControlPanel" Datatype="TO_Struct_ControlPanel" Version="5.0"><Sections><Section Name="None"><Member Name="Input" Datatype="TO_Struct_ControlPanelInput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelInputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="ReqCounter" Datatype="UDInt" /><Member Name="Type" Datatype="UDInt" /><Member Name="Position" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Param" Datatype="LReal" /></Section></Sections></Member><Member Name="TimeOut" Datatype="LReal" /><Member Name="EsLifeSign" Datatype="UDInt" /></Section></Sections></Member><Member Name="Output" Datatype="TO_Struct_ControlPanelOutput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelOutputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="AckCounter" Datatype="UDInt" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorID" Datatype="Word" /><Member Name="Done" Datatype="Bool" /><Member Name="Aborted" Datatype="Bool" /></Section></Sections></Member><Member Name="RtLifeSign" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="InternalToTrace" Datatype="Array[1..4] of TO_Struct_Internal" Version="5.0"><Sections><Section Name="None"><Member Name="Id" Datatype="DInt" /><Member Name="Value" Datatype="LReal" /></Section></Sections></Member><Member Name="VirtualAxis" Datatype="TO_Struct_VirtualAxis" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member><Member Name="Simulation" Datatype="TO_Struct_AxisSimulation" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="AbortAcceleration" Datatype="Bool" /></Section><Section Name="Output"><Member Name="Done" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_POWER_Instance_1" Datatype="MC_POWER" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_Axis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Member><Member Name="Enable" Datatype="Bool" /><Member Name="StartMode" Datatype="DInt" /><Member Name="StopMode" Datatype="Int" /></Section><Section Name="Output"><Member Name="Status" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_RESET_Instance_1" Datatype="MC_RESET" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_Object" Version="5.0"><Sections><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Restart" Datatype="Bool" /></Section><Section Name="Output"><Member Name="Done" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_HOME_Instance_1" Datatype="MC_HOME" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_Axis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Position" Datatype="LReal" /><Member Name="Mode" Datatype="Int" /></Section><Section Name="Output"><Member Name="ReferenceMarkPosition" Datatype="LReal" /><Member Name="Done" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_MOVEVELOCITY_Instance_1" Datatype="MC_MOVEVELOCITY" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_SpeedAxis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Axis" Version="5.0"><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="ActualSpeed" Datatype="LReal" /><Member Name="VelocitySetpoint" Datatype="LReal" /><Member Name="Actor" Datatype="TO_Struct_Actor" Version="5.0"><Sections><Section Name="None"><Member Name="Type" Datatype="DInt" /><Member Name="InverseDirection" Datatype="Bool" /><Member Name="DataAdaption" Datatype="DInt" /><Member Name="Efficiency" Datatype="LReal" /><Member Name="Interface" Datatype="TO_Struct_ActorInterface" Version="5.0"><Sections><Section Name="None"><Member Name="AddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="AddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableDriveOutput" Datatype="Bool" /><Member Name="EnableDriveOutputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="DriveReadyInput" Datatype="Bool" /><Member Name="DriveReadyInputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableTorqueData" Datatype="Bool" /><Member Name="TorqueDataAddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="TorqueDataAddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="DriveParameter" Datatype="TO_Struct_ActorDriveParameter" Version="5.0"><Sections><Section Name="None"><Member Name="ReferenceSpeed" Datatype="LReal" /><Member Name="MaxSpeed" Datatype="LReal" /><Member Name="ReferenceTorque" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="TorqueLimiting" Datatype="TO_Struct_TorqueLimiting" Version="5.0"><Sections><Section Name="None"><Member Name="LimitBase" Datatype="DInt" /><Member Name="PositionBasedMonitorings" Datatype="DInt" /><Member Name="LimitDefaults" Datatype="TO_Struct_TorqueLimitingLimitDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Torque" Datatype="LReal" /><Member Name="Force" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="LoadGear" Datatype="TO_Struct_LoadGear" Version="5.0"><Sections><Section Name="None"><Member Name="Numerator" Datatype="UDInt" /><Member Name="Denominator" Datatype="UDInt" /></Section></Sections></Member><Member Name="DynamicLimits" Datatype="TO_Struct_DynamicLimits" Version="5.0"><Sections><Section Name="None"><Member Name="MaxVelocity" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="MaxAcceleration" Datatype="LReal" /><Member Name="MaxDeceleration" Datatype="LReal" /><Member Name="MaxJerk" Datatype="LReal" /></Section></Sections></Member><Member Name="DynamicDefaults" Datatype="TO_Struct_DynamicDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="EmergencyDeceleration" Datatype="LReal" /></Section></Sections></Member><Member Name="Override" Datatype="TO_Struct_Override" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /></Section></Sections></Member><Member Name="Units" Datatype="TO_Struct_Units" Version="5.0"><Sections><Section Name="None"><Member Name="LengthUnit" Datatype="UDInt" /><Member Name="VelocityUnit" Datatype="UDInt" /><Member Name="TimeUnit" Datatype="UDInt" /><Member Name="TorqueUnit" Datatype="UDInt" /><Member Name="ForceUnit" Datatype="UDInt" /></Section></Sections></Member><Member Name="StatusDrive" Datatype="TO_Struct_StatusDrive" Version="5.0"><Sections><Section Name="None"><Member Name="InOperation" Datatype="Bool" /><Member Name="CommunicationOK" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="AdaptionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusTorqueData" Datatype="TO_Struct_StatusTorqueData" Version="5.0"><Sections><Section Name="None"><Member Name="CommandAdditiveTorqueActive" Datatype="DInt" /><Member Name="CommandTorqueRangeActive" Datatype="DInt" /><Member Name="ActualTorque" Datatype="LReal" /></Section></Sections></Member><Member Name="StatusMotionIn" Datatype="TO_Struct_StatusMotionIn" Version="5.0"><Sections><Section Name="None"><Member Name="FunctionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusWord" Datatype="DWord" /><Member Name="StatusWord2" Datatype="DWord" /><Member Name="ErrorWord" Datatype="DWord" /><Member Name="ErrorDetail" Datatype="TO_Struct_ErrorDetail" Version="5.0"><Sections><Section Name="None"><Member Name="Number" Datatype="UDInt" /><Member Name="Reaction" Datatype="DInt" /></Section></Sections></Member><Member Name="WarningWord" Datatype="DWord" /><Member Name="ControlPanel" Datatype="TO_Struct_ControlPanel" Version="5.0"><Sections><Section Name="None"><Member Name="Input" Datatype="TO_Struct_ControlPanelInput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelInputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="ReqCounter" Datatype="UDInt" /><Member Name="Type" Datatype="UDInt" /><Member Name="Position" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Param" Datatype="LReal" /></Section></Sections></Member><Member Name="TimeOut" Datatype="LReal" /><Member Name="EsLifeSign" Datatype="UDInt" /></Section></Sections></Member><Member Name="Output" Datatype="TO_Struct_ControlPanelOutput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelOutputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="AckCounter" Datatype="UDInt" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorID" Datatype="Word" /><Member Name="Done" Datatype="Bool" /><Member Name="Aborted" Datatype="Bool" /></Section></Sections></Member><Member Name="RtLifeSign" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="InternalToTrace" Datatype="Array[1..4] of TO_Struct_Internal" Version="5.0"><Sections><Section Name="None"><Member Name="Id" Datatype="DInt" /><Member Name="Value" Datatype="LReal" /></Section></Sections></Member><Member Name="VirtualAxis" Datatype="TO_Struct_VirtualAxis" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member><Member Name="Simulation" Datatype="TO_Struct_AxisSimulation" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Direction" Datatype="Int" /><Member Name="Current" Datatype="Bool" /><Member Name="PositionControlled" Datatype="Bool" /></Section><Section Name="Output"><Member Name="InVelocity" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="MC_HALT_Instance_1" Datatype="MC_HALT" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_SpeedAxis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Axis" Version="5.0"><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="ActualSpeed" Datatype="LReal" /><Member Name="VelocitySetpoint" Datatype="LReal" /><Member Name="Actor" Datatype="TO_Struct_Actor" Version="5.0"><Sections><Section Name="None"><Member Name="Type" Datatype="DInt" /><Member Name="InverseDirection" Datatype="Bool" /><Member Name="DataAdaption" Datatype="DInt" /><Member Name="Efficiency" Datatype="LReal" /><Member Name="Interface" Datatype="TO_Struct_ActorInterface" Version="5.0"><Sections><Section Name="None"><Member Name="AddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="AddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableDriveOutput" Datatype="Bool" /><Member Name="EnableDriveOutputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="DriveReadyInput" Datatype="Bool" /><Member Name="DriveReadyInputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableTorqueData" Datatype="Bool" /><Member Name="TorqueDataAddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="TorqueDataAddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="DriveParameter" Datatype="TO_Struct_ActorDriveParameter" Version="5.0"><Sections><Section Name="None"><Member Name="ReferenceSpeed" Datatype="LReal" /><Member Name="MaxSpeed" Datatype="LReal" /><Member Name="ReferenceTorque" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="TorqueLimiting" Datatype="TO_Struct_TorqueLimiting" Version="5.0"><Sections><Section Name="None"><Member Name="LimitBase" Datatype="DInt" /><Member Name="PositionBasedMonitorings" Datatype="DInt" /><Member Name="LimitDefaults" Datatype="TO_Struct_TorqueLimitingLimitDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Torque" Datatype="LReal" /><Member Name="Force" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="LoadGear" Datatype="TO_Struct_LoadGear" Version="5.0"><Sections><Section Name="None"><Member Name="Numerator" Datatype="UDInt" /><Member Name="Denominator" Datatype="UDInt" /></Section></Sections></Member><Member Name="DynamicLimits" Datatype="TO_Struct_DynamicLimits" Version="5.0"><Sections><Section Name="None"><Member Name="MaxVelocity" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="MaxAcceleration" Datatype="LReal" /><Member Name="MaxDeceleration" Datatype="LReal" /><Member Name="MaxJerk" Datatype="LReal" /></Section></Sections></Member><Member Name="DynamicDefaults" Datatype="TO_Struct_DynamicDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="EmergencyDeceleration" Datatype="LReal" /></Section></Sections></Member><Member Name="Override" Datatype="TO_Struct_Override" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /></Section></Sections></Member><Member Name="Units" Datatype="TO_Struct_Units" Version="5.0"><Sections><Section Name="None"><Member Name="LengthUnit" Datatype="UDInt" /><Member Name="VelocityUnit" Datatype="UDInt" /><Member Name="TimeUnit" Datatype="UDInt" /><Member Name="TorqueUnit" Datatype="UDInt" /><Member Name="ForceUnit" Datatype="UDInt" /></Section></Sections></Member><Member Name="StatusDrive" Datatype="TO_Struct_StatusDrive" Version="5.0"><Sections><Section Name="None"><Member Name="InOperation" Datatype="Bool" /><Member Name="CommunicationOK" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="AdaptionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusTorqueData" Datatype="TO_Struct_StatusTorqueData" Version="5.0"><Sections><Section Name="None"><Member Name="CommandAdditiveTorqueActive" Datatype="DInt" /><Member Name="CommandTorqueRangeActive" Datatype="DInt" /><Member Name="ActualTorque" Datatype="LReal" /></Section></Sections></Member><Member Name="StatusMotionIn" Datatype="TO_Struct_StatusMotionIn" Version="5.0"><Sections><Section Name="None"><Member Name="FunctionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusWord" Datatype="DWord" /><Member Name="StatusWord2" Datatype="DWord" /><Member Name="ErrorWord" Datatype="DWord" /><Member Name="ErrorDetail" Datatype="TO_Struct_ErrorDetail" Version="5.0"><Sections><Section Name="None"><Member Name="Number" Datatype="UDInt" /><Member Name="Reaction" Datatype="DInt" /></Section></Sections></Member><Member Name="WarningWord" Datatype="DWord" /><Member Name="ControlPanel" Datatype="TO_Struct_ControlPanel" Version="5.0"><Sections><Section Name="None"><Member Name="Input" Datatype="TO_Struct_ControlPanelInput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelInputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="ReqCounter" Datatype="UDInt" /><Member Name="Type" Datatype="UDInt" /><Member Name="Position" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Param" Datatype="LReal" /></Section></Sections></Member><Member Name="TimeOut" Datatype="LReal" /><Member Name="EsLifeSign" Datatype="UDInt" /></Section></Sections></Member><Member Name="Output" Datatype="TO_Struct_ControlPanelOutput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelOutputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="AckCounter" Datatype="UDInt" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorID" Datatype="Word" /><Member Name="Done" Datatype="Bool" /><Member Name="Aborted" Datatype="Bool" /></Section></Sections></Member><Member Name="RtLifeSign" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="InternalToTrace" Datatype="Array[1..4] of TO_Struct_Internal" Version="5.0"><Sections><Section Name="None"><Member Name="Id" Datatype="DInt" /><Member Name="Value" Datatype="LReal" /></Section></Sections></Member><Member Name="VirtualAxis" Datatype="TO_Struct_VirtualAxis" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member><Member Name="Simulation" Datatype="TO_Struct_AxisSimulation" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="AbortAcceleration" Datatype="Bool" /></Section><Section Name="Output"><Member Name="Done" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="instMC_MOVEVELOCITY_SlsActive" Datatype="MC_MOVEVELOCITY" Version="5.0" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Sections><Section Name="Input"><Member Name="Axis" Datatype="TO_SpeedAxis" Version="5.0"><Sections><Section Name="Base"><Sections Datatype="TO_Axis" Version="5.0"><Section Name="Base"><Sections Datatype="TO_Object" Version="5.0"><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static" /></Sections></Section><Section Name="Input" /><Section Name="Output" /><Section Name="InOut" /><Section Name="Static"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="ActualSpeed" Datatype="LReal" /><Member Name="VelocitySetpoint" Datatype="LReal" /><Member Name="Actor" Datatype="TO_Struct_Actor" Version="5.0"><Sections><Section Name="None"><Member Name="Type" Datatype="DInt" /><Member Name="InverseDirection" Datatype="Bool" /><Member Name="DataAdaption" Datatype="DInt" /><Member Name="Efficiency" Datatype="LReal" /><Member Name="Interface" Datatype="TO_Struct_ActorInterface" Version="5.0"><Sections><Section Name="None"><Member Name="AddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="AddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableDriveOutput" Datatype="Bool" /><Member Name="EnableDriveOutputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="DriveReadyInput" Datatype="Bool" /><Member Name="DriveReadyInputAddress" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="EnableTorqueData" Datatype="Bool" /><Member Name="TorqueDataAddressIn" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member><Member Name="TorqueDataAddressOut" Datatype="VREF" Version="1.0"><Sections><Section Name="None"><Member Name="RID" Datatype="DWord" /><Member Name="AREA" Datatype="Byte" /><Member Name="DB_NUMBER" Datatype="UInt" /><Member Name="OFFSET" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="DriveParameter" Datatype="TO_Struct_ActorDriveParameter" Version="5.0"><Sections><Section Name="None"><Member Name="ReferenceSpeed" Datatype="LReal" /><Member Name="MaxSpeed" Datatype="LReal" /><Member Name="ReferenceTorque" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="TorqueLimiting" Datatype="TO_Struct_TorqueLimiting" Version="5.0"><Sections><Section Name="None"><Member Name="LimitBase" Datatype="DInt" /><Member Name="PositionBasedMonitorings" Datatype="DInt" /><Member Name="LimitDefaults" Datatype="TO_Struct_TorqueLimitingLimitDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Torque" Datatype="LReal" /><Member Name="Force" Datatype="LReal" /></Section></Sections></Member></Section></Sections></Member><Member Name="LoadGear" Datatype="TO_Struct_LoadGear" Version="5.0"><Sections><Section Name="None"><Member Name="Numerator" Datatype="UDInt" /><Member Name="Denominator" Datatype="UDInt" /></Section></Sections></Member><Member Name="DynamicLimits" Datatype="TO_Struct_DynamicLimits" Version="5.0"><Sections><Section Name="None"><Member Name="MaxVelocity" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="MaxAcceleration" Datatype="LReal" /><Member Name="MaxDeceleration" Datatype="LReal" /><Member Name="MaxJerk" Datatype="LReal" /></Section></Sections></Member><Member Name="DynamicDefaults" Datatype="TO_Struct_DynamicDefaults" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="EmergencyDeceleration" Datatype="LReal" /></Section></Sections></Member><Member Name="Override" Datatype="TO_Struct_Override" Version="5.0"><Sections><Section Name="None"><Member Name="Velocity" Datatype="LReal" /></Section></Sections></Member><Member Name="Units" Datatype="TO_Struct_Units" Version="5.0"><Sections><Section Name="None"><Member Name="LengthUnit" Datatype="UDInt" /><Member Name="VelocityUnit" Datatype="UDInt" /><Member Name="TimeUnit" Datatype="UDInt" /><Member Name="TorqueUnit" Datatype="UDInt" /><Member Name="ForceUnit" Datatype="UDInt" /></Section></Sections></Member><Member Name="StatusDrive" Datatype="TO_Struct_StatusDrive" Version="5.0"><Sections><Section Name="None"><Member Name="InOperation" Datatype="Bool" /><Member Name="CommunicationOK" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="AdaptionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusTorqueData" Datatype="TO_Struct_StatusTorqueData" Version="5.0"><Sections><Section Name="None"><Member Name="CommandAdditiveTorqueActive" Datatype="DInt" /><Member Name="CommandTorqueRangeActive" Datatype="DInt" /><Member Name="ActualTorque" Datatype="LReal" /></Section></Sections></Member><Member Name="StatusMotionIn" Datatype="TO_Struct_StatusMotionIn" Version="5.0"><Sections><Section Name="None"><Member Name="FunctionState" Datatype="DInt" /></Section></Sections></Member><Member Name="StatusWord" Datatype="DWord" /><Member Name="StatusWord2" Datatype="DWord" /><Member Name="ErrorWord" Datatype="DWord" /><Member Name="ErrorDetail" Datatype="TO_Struct_ErrorDetail" Version="5.0"><Sections><Section Name="None"><Member Name="Number" Datatype="UDInt" /><Member Name="Reaction" Datatype="DInt" /></Section></Sections></Member><Member Name="WarningWord" Datatype="DWord" /><Member Name="ControlPanel" Datatype="TO_Struct_ControlPanel" Version="5.0"><Sections><Section Name="None"><Member Name="Input" Datatype="TO_Struct_ControlPanelInput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelInputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="ReqCounter" Datatype="UDInt" /><Member Name="Type" Datatype="UDInt" /><Member Name="Position" Datatype="LReal" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Param" Datatype="LReal" /></Section></Sections></Member><Member Name="TimeOut" Datatype="LReal" /><Member Name="EsLifeSign" Datatype="UDInt" /></Section></Sections></Member><Member Name="Output" Datatype="TO_Struct_ControlPanelOutput" Version="5.0"><Sections><Section Name="None"><Member Name="Command" Datatype="Array[1..2] of TO_Struct_ControlPanelOutputCmd" Version="5.0"><Sections><Section Name="None"><Member Name="AckCounter" Datatype="UDInt" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorID" Datatype="Word" /><Member Name="Done" Datatype="Bool" /><Member Name="Aborted" Datatype="Bool" /></Section></Sections></Member><Member Name="RtLifeSign" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="InternalToTrace" Datatype="Array[1..4] of TO_Struct_Internal" Version="5.0"><Sections><Section Name="None"><Member Name="Id" Datatype="DInt" /><Member Name="Value" Datatype="LReal" /></Section></Sections></Member><Member Name="VirtualAxis" Datatype="TO_Struct_VirtualAxis" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member><Member Name="Simulation" Datatype="TO_Struct_AxisSimulation" Version="5.0"><Sections><Section Name="None"><Member Name="Mode" Datatype="UDInt" /></Section></Sections></Member></Section></Sections></Member><Member Name="Execute" Datatype="Bool" /><Member Name="Velocity" Datatype="LReal" /><Member Name="Acceleration" Datatype="LReal" /><Member Name="Deceleration" Datatype="LReal" /><Member Name="Jerk" Datatype="LReal" /><Member Name="Direction" Datatype="Int" /><Member Name="Current" Datatype="Bool" /><Member Name="PositionControlled" Datatype="Bool" /></Section><Section Name="Output"><Member Name="InVelocity" Datatype="Bool" /><Member Name="Busy" Datatype="Bool" /><Member Name="CommandAborted" Datatype="Bool" /><Member Name="Error" Datatype="Bool" /><Member Name="ErrorId" Datatype="Word" /></Section><Section Name="InOut" /><Section Name="Static" /></Sections></Member>
+    <Member Name="statSlsPtrig" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+</Sections></Interface>
+      <IsIECCheckEnabled>true</IsIECCheckEnabled>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>Motion</Name>
+      <Number>2</Number>
+      <ProgrammingLanguage>FBD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="3" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="4" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="PositioningAxis_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="enableAxis1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositioningAxis_2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="enableAxis2" />
+      </Symbol>
+    </Access>
+    <Part Name="MC_POWER" Version="5.0" UId="25">
+      <Instance Scope="LocalVariable" UId="26">
+        <Component Name="MC_POWER_Instance" />
+      </Instance>
+    </Part>
+    <Part Name="MC_POWER" Version="5.0" UId="27">
+      <Instance Scope="LocalVariable" UId="28">
+        <Component Name="MC_POWER_Instance_1" />
+      </Instance>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="43">
+      <OpenCon UId="29" />
+      <NameCon UId="25" Name="en" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="Axis" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="Enable" />
+    </Wire>
+    <Wire UId="46">
+      <OpenCon UId="30" />
+      <NameCon UId="25" Name="StartMode" />
+    </Wire>
+    <Wire UId="47">
+      <OpenCon UId="31" />
+      <NameCon UId="25" Name="StopMode" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="25" Name="Status" />
+      <OpenCon UId="32" />
+    </Wire>
+    <Wire UId="49">
+      <NameCon UId="25" Name="Busy" />
+      <OpenCon UId="33" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="25" Name="Error" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="51">
+      <NameCon UId="25" Name="ErrorId" />
+      <OpenCon UId="35" />
+    </Wire>
+    <Wire UId="52">
+      <OpenCon UId="36" />
+      <NameCon UId="27" Name="en" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="Axis" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="Enable" />
+    </Wire>
+    <Wire UId="55">
+      <OpenCon UId="37" />
+      <NameCon UId="27" Name="StartMode" />
+    </Wire>
+    <Wire UId="56">
+      <OpenCon UId="38" />
+      <NameCon UId="27" Name="StopMode" />
+    </Wire>
+    <Wire UId="57">
+      <NameCon UId="27" Name="Status" />
+      <OpenCon UId="39" />
+    </Wire>
+    <Wire UId="58">
+      <NameCon UId="27" Name="Busy" />
+      <OpenCon UId="40" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="27" Name="Error" />
+      <OpenCon UId="41" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="27" Name="ErrorId" />
+      <OpenCon UId="42" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="PositioningAxis_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="reset" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositioningAxis_2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="reset" />
+      </Symbol>
+    </Access>
+    <Part Name="MC_RESET" Version="5.0" UId="25">
+      <Instance Scope="LocalVariable" UId="26">
+        <Component Name="MC_RESET_Instance" />
+      </Instance>
+    </Part>
+    <Part Name="MC_RESET" Version="5.0" UId="27">
+      <Instance Scope="LocalVariable" UId="28">
+        <Component Name="MC_RESET_Instance_1" />
+      </Instance>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="43">
+      <OpenCon UId="29" />
+      <NameCon UId="25" Name="en" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="Axis" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="Execute" />
+    </Wire>
+    <Wire UId="46">
+      <OpenCon UId="30" />
+      <NameCon UId="25" Name="Restart" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="25" Name="Done" />
+      <OpenCon UId="31" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="25" Name="Busy" />
+      <OpenCon UId="32" />
+    </Wire>
+    <Wire UId="49">
+      <NameCon UId="25" Name="CommandAborted" />
+      <OpenCon UId="33" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="25" Name="Error" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="51">
+      <NameCon UId="25" Name="ErrorId" />
+      <OpenCon UId="35" />
+    </Wire>
+    <Wire UId="52">
+      <OpenCon UId="36" />
+      <NameCon UId="27" Name="en" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="Axis" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="Execute" />
+    </Wire>
+    <Wire UId="55">
+      <OpenCon UId="37" />
+      <NameCon UId="27" Name="Restart" />
+    </Wire>
+    <Wire UId="56">
+      <NameCon UId="27" Name="Done" />
+      <OpenCon UId="38" />
+    </Wire>
+    <Wire UId="57">
+      <NameCon UId="27" Name="Busy" />
+      <OpenCon UId="39" />
+    </Wire>
+    <Wire UId="58">
+      <NameCon UId="27" Name="CommandAborted" />
+      <OpenCon UId="40" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="27" Name="Error" />
+      <OpenCon UId="41" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="27" Name="ErrorId" />
+      <OpenCon UId="42" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="PositioningAxis_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="homeAxis1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositioningAxis_2" />
+      </Symbol>
+    </Access>
+    <Part Name="MC_HOME" Version="5.0" UId="24">
+      <Instance Scope="LocalVariable" UId="25">
+        <Component Name="MC_HOME_Instance" />
+      </Instance>
+    </Part>
+    <Part Name="MC_HOME" Version="5.0" UId="26">
+      <Instance Scope="LocalVariable" UId="27">
+        <Component Name="MC_HOME_Instance_1" />
+      </Instance>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="47">
+      <OpenCon UId="28" />
+      <NameCon UId="24" Name="en" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="Axis" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="Execute" />
+    </Wire>
+    <Wire UId="50">
+      <OpenCon UId="29" />
+      <NameCon UId="24" Name="Position" />
+    </Wire>
+    <Wire UId="51">
+      <OpenCon UId="30" />
+      <NameCon UId="24" Name="Mode" />
+    </Wire>
+    <Wire UId="52">
+      <NameCon UId="24" Name="ReferenceMarkPosition" />
+      <OpenCon UId="31" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="24" Name="Done" />
+      <OpenCon UId="32" />
+    </Wire>
+    <Wire UId="54">
+      <NameCon UId="24" Name="Busy" />
+      <OpenCon UId="33" />
+    </Wire>
+    <Wire UId="55">
+      <NameCon UId="24" Name="CommandAborted" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="56">
+      <NameCon UId="24" Name="Error" />
+      <OpenCon UId="35" />
+    </Wire>
+    <Wire UId="57">
+      <NameCon UId="24" Name="ErrorId" />
+      <OpenCon UId="36" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="37" />
+      <NameCon UId="26" Name="en" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="Axis" />
+    </Wire>
+    <Wire UId="60">
+      <OpenCon UId="38" />
+      <NameCon UId="26" Name="Execute" />
+    </Wire>
+    <Wire UId="61">
+      <OpenCon UId="39" />
+      <NameCon UId="26" Name="Position" />
+    </Wire>
+    <Wire UId="62">
+      <OpenCon UId="40" />
+      <NameCon UId="26" Name="Mode" />
+    </Wire>
+    <Wire UId="63">
+      <NameCon UId="26" Name="ReferenceMarkPosition" />
+      <OpenCon UId="41" />
+    </Wire>
+    <Wire UId="64">
+      <NameCon UId="26" Name="Done" />
+      <OpenCon UId="42" />
+    </Wire>
+    <Wire UId="65">
+      <NameCon UId="26" Name="Busy" />
+      <OpenCon UId="43" />
+    </Wire>
+    <Wire UId="66">
+      <NameCon UId="26" Name="CommandAborted" />
+      <OpenCon UId="44" />
+    </Wire>
+    <Wire UId="67">
+      <NameCon UId="26" Name="Error" />
+      <OpenCon UId="45" />
+    </Wire>
+    <Wire UId="68">
+      <NameCon UId="26" Name="ErrorId" />
+      <OpenCon UId="46" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="15" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="16" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="18" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="19" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="PositioningAxis_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="moveVelocityAxis1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositioningAxis_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="slsActiveAxis1" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="statSlsPtrig" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="26">
+      <Constant>
+        <ConstantType>LReal</ConstantType>
+        <ConstantValue>20.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PositioningAxis_2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="moveVelocityAxis2" />
+      </Symbol>
+    </Access>
+    <Part Name="MC_MOVEVELOCITY" Version="5.0" UId="29">
+      <Instance Scope="LocalVariable" UId="30">
+        <Component Name="MC_MOVEVELOCITY_Instance" />
+      </Instance>
+    </Part>
+    <Part Name="PBox" UId="31" />
+    <Part Name="MC_MOVEVELOCITY" Version="5.0" UId="32">
+      <Instance Scope="LocalVariable" UId="33">
+        <Component Name="instMC_MOVEVELOCITY_SlsActive" />
+      </Instance>
+    </Part>
+    <Part Name="MC_MOVEVELOCITY" Version="5.0" UId="34">
+      <Instance Scope="LocalVariable" UId="35">
+        <Component Name="MC_MOVEVELOCITY_Instance_1" />
+      </Instance>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="74">
+      <OpenCon UId="36" />
+      <NameCon UId="29" Name="en" />
+    </Wire>
+    <Wire UId="75">
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="Axis" />
+    </Wire>
+    <Wire UId="76">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="Execute" />
+    </Wire>
+    <Wire UId="77">
+      <OpenCon UId="37" />
+      <NameCon UId="29" Name="Velocity" />
+    </Wire>
+    <Wire UId="78">
+      <OpenCon UId="38" />
+      <NameCon UId="29" Name="Acceleration" />
+    </Wire>
+    <Wire UId="79">
+      <OpenCon UId="39" />
+      <NameCon UId="29" Name="Deceleration" />
+    </Wire>
+    <Wire UId="80">
+      <OpenCon UId="40" />
+      <NameCon UId="29" Name="Jerk" />
+    </Wire>
+    <Wire UId="81">
+      <OpenCon UId="41" />
+      <NameCon UId="29" Name="Direction" />
+    </Wire>
+    <Wire UId="82">
+      <OpenCon UId="42" />
+      <NameCon UId="29" Name="Current" />
+    </Wire>
+    <Wire UId="83">
+      <OpenCon UId="43" />
+      <NameCon UId="29" Name="PositionControlled" />
+    </Wire>
+    <Wire UId="84">
+      <NameCon UId="29" Name="InVelocity" />
+      <OpenCon UId="44" />
+    </Wire>
+    <Wire UId="85">
+      <NameCon UId="29" Name="Busy" />
+      <OpenCon UId="45" />
+    </Wire>
+    <Wire UId="86">
+      <NameCon UId="29" Name="CommandAborted" />
+      <OpenCon UId="46" />
+    </Wire>
+    <Wire UId="87">
+      <NameCon UId="29" Name="Error" />
+      <OpenCon UId="47" />
+    </Wire>
+    <Wire UId="88">
+      <NameCon UId="29" Name="ErrorId" />
+      <OpenCon UId="48" />
+    </Wire>
+    <Wire UId="89">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="in" />
+    </Wire>
+    <Wire UId="90">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="bit" />
+    </Wire>
+    <Wire UId="91">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="Execute" />
+    </Wire>
+    <Wire UId="92">
+      <OpenCon UId="49" />
+      <NameCon UId="32" Name="en" />
+    </Wire>
+    <Wire UId="93">
+      <IdentCon UId="23" />
+      <NameCon UId="32" Name="Axis" />
+    </Wire>
+    <Wire UId="94">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="Velocity" />
+    </Wire>
+    <Wire UId="95">
+      <OpenCon UId="50" />
+      <NameCon UId="32" Name="Acceleration" />
+    </Wire>
+    <Wire UId="96">
+      <OpenCon UId="51" />
+      <NameCon UId="32" Name="Deceleration" />
+    </Wire>
+    <Wire UId="97">
+      <OpenCon UId="52" />
+      <NameCon UId="32" Name="Jerk" />
+    </Wire>
+    <Wire UId="98">
+      <OpenCon UId="53" />
+      <NameCon UId="32" Name="Direction" />
+    </Wire>
+    <Wire UId="99">
+      <OpenCon UId="54" />
+      <NameCon UId="32" Name="Current" />
+    </Wire>
+    <Wire UId="100">
+      <OpenCon UId="55" />
+      <NameCon UId="32" Name="PositionControlled" />
+    </Wire>
+    <Wire UId="101">
+      <NameCon UId="32" Name="InVelocity" />
+      <OpenCon UId="56" />
+    </Wire>
+    <Wire UId="102">
+      <NameCon UId="32" Name="Busy" />
+      <OpenCon UId="57" />
+    </Wire>
+    <Wire UId="103">
+      <NameCon UId="32" Name="CommandAborted" />
+      <OpenCon UId="58" />
+    </Wire>
+    <Wire UId="104">
+      <NameCon UId="32" Name="Error" />
+      <OpenCon UId="59" />
+    </Wire>
+    <Wire UId="105">
+      <NameCon UId="32" Name="ErrorId" />
+      <OpenCon UId="60" />
+    </Wire>
+    <Wire UId="106">
+      <OpenCon UId="61" />
+      <NameCon UId="34" Name="en" />
+    </Wire>
+    <Wire UId="107">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="Axis" />
+    </Wire>
+    <Wire UId="108">
+      <IdentCon UId="28" />
+      <NameCon UId="34" Name="Execute" />
+    </Wire>
+    <Wire UId="109">
+      <OpenCon UId="62" />
+      <NameCon UId="34" Name="Velocity" />
+    </Wire>
+    <Wire UId="110">
+      <OpenCon UId="63" />
+      <NameCon UId="34" Name="Acceleration" />
+    </Wire>
+    <Wire UId="111">
+      <OpenCon UId="64" />
+      <NameCon UId="34" Name="Deceleration" />
+    </Wire>
+    <Wire UId="112">
+      <OpenCon UId="65" />
+      <NameCon UId="34" Name="Jerk" />
+    </Wire>
+    <Wire UId="113">
+      <OpenCon UId="66" />
+      <NameCon UId="34" Name="Direction" />
+    </Wire>
+    <Wire UId="114">
+      <OpenCon UId="67" />
+      <NameCon UId="34" Name="Current" />
+    </Wire>
+    <Wire UId="115">
+      <OpenCon UId="68" />
+      <NameCon UId="34" Name="PositionControlled" />
+    </Wire>
+    <Wire UId="116">
+      <NameCon UId="34" Name="InVelocity" />
+      <OpenCon UId="69" />
+    </Wire>
+    <Wire UId="117">
+      <NameCon UId="34" Name="Busy" />
+      <OpenCon UId="70" />
+    </Wire>
+    <Wire UId="118">
+      <NameCon UId="34" Name="CommandAborted" />
+      <OpenCon UId="71" />
+    </Wire>
+    <Wire UId="119">
+      <NameCon UId="34" Name="Error" />
+      <OpenCon UId="72" />
+    </Wire>
+    <Wire UId="120">
+      <NameCon UId="34" Name="ErrorId" />
+      <OpenCon UId="73" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="1F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="20" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="PositioningAxis_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="stop" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositioningAxis_2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Test" />
+        <Component Name="stop" />
+      </Symbol>
+    </Access>
+    <Part Name="MC_HALT" Version="5.0" UId="25">
+      <Instance Scope="LocalVariable" UId="26">
+        <Component Name="MC_HALT_Instance" />
+      </Instance>
+    </Part>
+    <Part Name="MC_HALT" Version="5.0" UId="27">
+      <Instance Scope="LocalVariable" UId="28">
+        <Component Name="MC_HALT_Instance_1" />
+      </Instance>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="47">
+      <OpenCon UId="29" />
+      <NameCon UId="25" Name="en" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="Axis" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="Execute" />
+    </Wire>
+    <Wire UId="50">
+      <OpenCon UId="30" />
+      <NameCon UId="25" Name="Deceleration" />
+    </Wire>
+    <Wire UId="51">
+      <OpenCon UId="31" />
+      <NameCon UId="25" Name="Jerk" />
+    </Wire>
+    <Wire UId="52">
+      <OpenCon UId="32" />
+      <NameCon UId="25" Name="AbortAcceleration" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="25" Name="Done" />
+      <OpenCon UId="33" />
+    </Wire>
+    <Wire UId="54">
+      <NameCon UId="25" Name="Busy" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="55">
+      <NameCon UId="25" Name="CommandAborted" />
+      <OpenCon UId="35" />
+    </Wire>
+    <Wire UId="56">
+      <NameCon UId="25" Name="Error" />
+      <OpenCon UId="36" />
+    </Wire>
+    <Wire UId="57">
+      <NameCon UId="25" Name="ErrorId" />
+      <OpenCon UId="37" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="38" />
+      <NameCon UId="27" Name="en" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="Axis" />
+    </Wire>
+    <Wire UId="60">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="Execute" />
+    </Wire>
+    <Wire UId="61">
+      <OpenCon UId="39" />
+      <NameCon UId="27" Name="Deceleration" />
+    </Wire>
+    <Wire UId="62">
+      <OpenCon UId="40" />
+      <NameCon UId="27" Name="Jerk" />
+    </Wire>
+    <Wire UId="63">
+      <OpenCon UId="41" />
+      <NameCon UId="27" Name="AbortAcceleration" />
+    </Wire>
+    <Wire UId="64">
+      <NameCon UId="27" Name="Done" />
+      <OpenCon UId="42" />
+    </Wire>
+    <Wire UId="65">
+      <NameCon UId="27" Name="Busy" />
+      <OpenCon UId="43" />
+    </Wire>
+    <Wire UId="66">
+      <NameCon UId="27" Name="CommandAborted" />
+      <OpenCon UId="44" />
+    </Wire>
+    <Wire UId="67">
+      <NameCon UId="27" Name="Error" />
+      <OpenCon UId="45" />
+    </Wire>
+    <Wire UId="68">
+      <NameCon UId="27" Name="ErrorId" />
+      <OpenCon UId="46" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="27" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>zh-CN</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="2E" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="2F" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+          <MultilingualTextItem ID="30" CompositionName="Items">
+            <AttributeList>
+              <Culture>zh-CN</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>
